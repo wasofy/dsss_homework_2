@@ -47,42 +47,19 @@ def calculateMathematicalExpression(first_number, second_number, operator):
     return mathematical_expression, result
 
 def math_quiz():
-    """
-        Runs a math quiz game where the user is asked to solve a number of arithmetic problems.
-
-        This function initializes the score and the total number of questions. It presents random arithmetic
-        problems to the user and checks their answers. The user earns points only for correct answers and receives
-        feedback for incorrect answers.
-
-        After the user completes all questions, the game displays the final score.
-
-        Note:
-            The game asks a fixed number of questions (t_q). Modify the 't_q' variable to change the number
-            of questions in the game.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
     # Initialize score and total number of questions
     s = 0
     t_q = 3
-
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
-
     for _ in range(t_q):
         # Generate 2 random numbers and select a random arithmetic operator
         first_number = generateRandomInteger(1, 10)
         second_number = generateRandomInteger(1, 5)
         operator = selectRandomArithmetic()
-
         # Calculate the Mathematical expression
         problem, answer = calculateMathematicalExpression(first_number, second_number, operator)
         print(f"\nQuestion: {problem}")
-
         # Error Handling by checking whether the user input is valid
         while True:
             try:
@@ -91,7 +68,6 @@ def math_quiz():
                 break
             except ValueError:
                 print("Invalid input. Please enter a number.")
-
         # Check user's answer and update the score
         if user_answer == answer:
             print("Correct! You earned a point.")
